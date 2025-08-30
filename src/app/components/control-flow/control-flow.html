@@ -1,0 +1,57 @@
+<h1>Control-flow works!</h1>
+
+<table>
+  <tr>
+    <td>
+      @if (isParaVisible === true) {
+      <p>This is a sample PARAGRAPH</p>
+      }@else{
+      <h3>IsParaVisible has FALSE value</h3>
+      }
+    </td>
+    <td>
+      <button (click)="showP()">Show P</button>
+    </td>
+    <td>
+      <button (click)="hideP()">Hide P</button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <ul>
+        @for (item of cityList; track $index) {
+        <li>{{ $index + 1 }} - {{ item }}</li>
+        }
+      </ul>
+    </td>
+    <td>
+      <select style="padding: 5px">
+        @for (item of cityList; track $index) {
+        <option value="{{ item }}">{{ item }}</option>
+        }
+      </select>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sr No</th>
+      <th>Name</th>
+      <th>City</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (student of studentList; track $index) {
+    <tr>
+      <td>{{ $index + 1 }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.city }}</td>
+      <td>{{ student.isActive ? "Active" : "Inactive" }}</td>
+    </tr>
+    }
+  </tbody>
+</table>

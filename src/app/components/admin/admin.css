@@ -1,0 +1,10 @@
+.primaryColor {
+  color: red;
+  font-size: 20px;
+}
+
+.secondaryColor {
+  color: magenta;
+  font-size: 20px;
+  font-weight: bold;
+}
