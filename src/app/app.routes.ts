@@ -4,6 +4,8 @@ import { DataBinding } from './components/data-binding/data-binding';
 import { Signal } from './components/signal/signal';
 import { ControlFlow } from './components/control-flow/control-flow';
 import { Directive } from './components/directive/directive';
+import { Api } from './components/api/api';
+import { User } from './components/user/user';
 
 export const routes: Routes = [
   {
@@ -25,5 +27,13 @@ export const routes: Routes = [
   {
     path: 'directive',
     component: Directive,
+  },
+  {
+    path: 'api',
+    component: Api,
+  },
+  {
+    path: 'user',
+    component: User,
   },
 ];

@@ -1,3 +1,115 @@
-<h1>User works!</h1>
+<div class="p-1">
+  <h1>User works!</h1>
 
-<input style="padding: 5px" type="text" placeholder="Enter your name" />
+  <div>
+    <div class="row">
+      <div class="col-7">
+        <div class="card">
+          <div class="card-header ng-success">
+            <h2>User List</h2>
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Email ID</th>
+                  <th>Password</th>
+                  <th>FullName</th>
+                  <th>Mobile No</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (user of userList; track $index) {
+                <tr>
+                  <td>{{ user.emailId }}</td>
+                  <td>{{ user.password }}</td>
+                  <td>{{ user.fullName }}</td>
+                  <td>{{ user.mobileNo }}</td>
+                  <td class="d-flex gap-1 justify-content-center">
+                    <button
+                      class="btn btn-sm btn-primary"
+                      (click)="onEditUser(user)"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      class="btn btn-sm btn-danger"
+                      (click)="onDeleteUser(user.userId)"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-5">
+        <div class="card">
+          <div class="card-header ng-success">
+            <h2>New User</h2>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6">
+                <label for="emailId">Email ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="user.emailId"
+                />
+              </div>
+              <div class="col-6">
+                <label for="emailId">Password</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="user.password"
+                />
+              </div>
+              <div class="col-6">
+                <label for="emailId">Full Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="user.fullName"
+                />
+              </div>
+              <div class="col-6">
+                <label for="emailId">Mobile No</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="user.mobileNo"
+                />
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-6 text-center">
+                <button class="btn btn-secondary" (click)="onReset()">
+                  Reset
+                </button>
+              </div>
+              <div class="col-6 text-center">
+                @if(user.userId === 0){
+                <button class="btn btn-success" (click)="onSaveUser()">
+                  Save
+                </button>
+                }@else {
+                <button class="btn btn-primary" (click)="onUpdateUser()">
+                  Update
+                </button>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

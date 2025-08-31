@@ -1,14 +1,55 @@
 <h1>Directive works!</h1>
 
 <div class="row">
-  <div class="col-3">
-    <div class="p-3">Div 1</div>
+  <div class="col">
+    <div class="p-3" [ngClass]="div1ClassName()">
+      <p>Div 1 - {{ div1ClassName() }}</p>
+    </div>
+  </div>
+  <div class="col">
+    <div
+      class="p-3"
+      [ngStyle]="{
+        'background-color': isDiv2Green ? 'lime' : 'orange',
+        color: 'white'
+      }"
+    >
+      <p>Div 2</p>
+    </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-3">
-    <button class="btn btn-success">Green</button>
-    <button class="btn btn-danger">Red</button>
+<div class="row mt-4">
+  <div class="col d-flex gap-3">
+    <button class="btn btn-success" (click)="setBgClass('bg-success')">
+      Green
+    </button>
+    <button class="btn btn-danger" (click)="setBgClass('bg-danger')">
+      Red
+    </button>
+  </div>
+  <div class="col d-flex gap-3">
+    <button class="btn btn-success" (click)="toggleDiv2Class()">
+      Toggle BG Color
+    </button>
   </div>
 </div>
+
+<hr />
+
+<h1>Pipes Samples</h1>
+
+<h6>First Name: {{ firstName | uppercase }}</h6>
+<h6>First Name: {{ firstName | lowercase }}</h6>
+<h6>Course Name: {{ courseName | titlecase }}</h6>
+
+<h6>Roll Numbers: {{ rollNumberList | slice : 0 : 3 }}</h6>
+<h6>Roll Numbers: {{ rollNumberList | slice : 5 : 10 }}</h6>
+
+<h6>{{ student | json }}</h6>
+
+<h6>Current Date: {{ currentDate }}</h6>
+<h6>Current Date with Pipe: {{ currentDate | date }}</h6>
+<h6>Current Date with Pipe: {{ currentDate | date : "dd-MMMM-yyyy" }}</h6>
+<h6>Current Date with Pipe: {{ currentDate | date : "dd-MM-yy" }}</h6>
+<h6>Current Date with Pipe: {{ currentDate | date : "dd-MMM-yy" }}</h6>

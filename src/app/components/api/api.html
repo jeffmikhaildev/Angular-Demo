@@ -1,0 +1,94 @@
+<h1>API works!</h1>
+
+<div>
+  <h1>POST</h1>
+</div>
+
+<div>
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Website</th>
+            <th>Company</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (user of userList; track $index) {
+          <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.website }}</td>
+            <td>{{ user.company.name }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-6">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <td>ID</td>
+            <td>User ID</td>
+            <td>Title</td>
+            <td>Completed</td>
+          </tr>
+        </thead>
+        <tbody>
+          @for (todo of todoList; track $index) {
+          <tr>
+            <td>{{ todo.id }}</td>
+            <td>{{ todo.userId }}</td>
+            <td>{{ todo.title }}</td>
+            <td>{{ todo.completed ? "Completed" : "Incomplete" }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr />
+
+  <h1>Bus Booking Users</h1>
+
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <td>User ID</td>
+            <td>User Name</td>
+            <td>Email ID</td>
+            <td>Full Name</td>
+            <td>Role</td>
+            <td>Password</td>
+          </tr>
+        </thead>
+        <tbody>
+          @for (busBookingUser of busBookingUsers; track $index) {
+          <tr>
+            <td>{{ busBookingUser.userId }}</td>
+            <td>{{ busBookingUser.userName }}</td>
+            <td>{{ busBookingUser.emailId }}</td>
+            <td>{{ busBookingUser.fullName }}</td>
+            <td>{{ busBookingUser.role | uppercase }}</td>
+            <td>{{ busBookingUser.password }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
